@@ -5,10 +5,11 @@
  * Use this template to get started creating a simple 2D game for the web using P5.js. 
  */
 var gameState = "splash"
+var player1;
 function setup() {
 
   createCanvas(600, 400);
-
+player1 = new Player(width/2, height/2);
 }
 
 function draw() {
@@ -17,19 +18,21 @@ function draw() {
   //splash(); // call the splash screen function (below)
   //play(); // call the play screen function (below)
   //gameOver(); // call the gameOver screen function (below)
-switch(gameState){
-case "splash" ;
-splash()
-break;
-case "play"
-play();
-break;
-case "gameOver" ;
-gameOver();
-break;
-default 
-}
-}
+  switch (gameState)  {
+    case "splash" :
+      splash(); // go to the "splash" screen
+      break;
+    case "play" :
+      play(); // go to the "play" screen
+      break;
+    case "gameOver" :
+      gameOver(); // go to the "game over" screen
+      break;
+    default :
+      console.log("no match found - check your mousePressed() function!");
+  }
+  }
+
 
 function splash() {
   // this is what you would see when the game starts
@@ -48,6 +51,8 @@ function play() {
   textAlign(CENTER);
   textSize(16);
   text("This is where the Game happens", width / 2, height / 2);
+player1.x = mouseX;
+  player1.display();
 
 }
 
@@ -60,15 +65,29 @@ function gameOver() {
   text("Game Over!", width / 2, height / 2);
 }
 
-function mousePressed() {
+function mousePressed(){
 
-  console.log("click!");
-if(gameState == "splash"){
-  gameState = "play";
-} else if(gameState == "play"){
-  gameState = "gameOver"
-  else if (gameState == "gameover"){
-    gameState = "splash;"
-  
+  if(gameState == "splash") { 
+    gameState = "play"; 
+} // go to "play"
+else if(gameState == "play") { 
+    gameState = "gameOver"; 
+} // go to "gameOver"
+else if(gameState == "gameOver") { 
+    gameState = "splash"; } 
+ // go to "splash"
+}
 
-} 
+function keyPressed() {
+  switch(keyCode) {
+    case UP_ARROW :
+      // do something
+      break;
+    case DOWN_ARROW :
+      // do something
+      break;
+// add more cases for more keys ...
+    default : // do this if the key doesn't match the list ...
+      console.log("press the arrow keys to move player1");
+  }
+}
