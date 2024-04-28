@@ -7,10 +7,10 @@
 var gameState = "splash"
 var player1;
 function setup() {
-
+ 
   createCanvas(600, 400);
-player1 = new Player(width/2, height/2);
-}
+player1 = new Player(width/2, height/2)
+} 
 
 function draw() {
   background(200);
@@ -53,7 +53,7 @@ function play() {
   text("This is where the Game happens", width / 2, height / 2);
 player1.x = mouseX;
   player1.display();
-
+ 
 }
 
 function gameOver() {
@@ -66,7 +66,13 @@ function gameOver() {
 }
 
 function mousePressed(){
-
+  if (gameState == "splash") {
+    gameState = "play"; // go to the play() screen
+  
+  }
+  else if (gameState == "play") {
+    // gameState = "gameOver";
+  }
   if(gameState == "splash") { 
     gameState = "play"; 
 } // go to "play"
@@ -76,18 +82,20 @@ else if(gameState == "play") {
 else if(gameState == "gameOver") { 
     gameState = "splash"; } 
  // go to "splash"
+ 
 }
 
 function keyPressed() {
   switch(keyCode) {
     case UP_ARROW :
-      // do something
+      
       break;
     case DOWN_ARROW :
-      // do something
+      
       break;
 // add more cases for more keys ...
     default : // do this if the key doesn't match the list ...
       console.log("press the arrow keys to move player1");
   }
 }
+
