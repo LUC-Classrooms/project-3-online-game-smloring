@@ -7,18 +7,25 @@
 var gameState = "splash"
 var player1;
 var gameTimer;
+var testBox; // a box to preview on the splash screen
+var dropTimer; // regulate box drops
+var presents = new Array(0); // an empty array called "presents"
+
 function setup() {
-  timer = new Timer(25000); // 25 second timer
+  createCanvas(600, 400);
+timer = new Timer(25000); // 25 second timer
   createCanvas(600, 400);
 player1 = new Player(width/2, height/2)
+dropTimer = new Timer(1000);
+
 } 
 
 function draw() {
   background(200);
   /* un-comment each line to see it work */
-  //splash(); // call the splash screen function (below)
-  //play(); // call the play screen function (below)
-  //gameOver(); // call the gameOver screen function (below)
+  splash(); // call the splash screen function (below)
+  play(); // call the play screen function (below)
+  gameOver(); // call the gameOver screen function (below)
   switch (gameState)  {
     case "splash" :
       splash(); // go to the "splash" screen
