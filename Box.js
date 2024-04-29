@@ -10,11 +10,11 @@ function Box(_x, _y){
 
   /* choose a color scheme at random */
   if(random(100) > 50){ // 50-50 chance
-    this.boxColor = color(random(100, 255), 0, 0); // red
-    this.ribbonColor = color(0, random(100, 255), 0); // green
+    this.boxColor = color(random(180, 230), random(200, 230), 255); //blue
+    
   } else {
-    this.boxColor = color(0, random(100, 255), 0); // green
-    this.ribbonColor = color(random(100, 255), 0, 0); // red
+    this.boxColor = color(255, 255, random(180, 230)); //yellow
+    
   }
 
   this.display = function(){
@@ -23,13 +23,15 @@ function Box(_x, _y){
     translate(this.x, this.y);
     rotate(this.angle);
 
-    rectMode(CENTER);
     fill(this.boxColor);
-    rect(0, 0, 40); // 40px square
+    ellipse(0, -20, 40, 40); // Center circle
+    ellipse(0, 20, 40, 40); // Bottom circle
+    ellipse(-20, 0, 40, 40); // Left circle
+    ellipse(20, 0, 40, 40); // Right circle
+    fill(255); // Set fill color to white for the center of the flower
+    ellipse(0, 0, 20, 20); // Center of the flower
 
-    fill(this.ribbonColor);
-    rect(0, 0, 40, 10); // horizontal ribbon
-    rect(0, 0, 10, 40); // vertical ribbon
+    
 
     pop();
 

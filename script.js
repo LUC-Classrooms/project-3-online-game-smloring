@@ -14,6 +14,8 @@ var score = 0; // keep track of points (starting at 0)
 
 function setup() {
   createCanvas(600, 400);
+
+  textFont("comic sans");
 timer = new Timer(25000); // 25 second timer
   createCanvas(600, 400);
 player1 = new Player(width/2, height/2)
@@ -46,7 +48,8 @@ function draw() {
 
 function splash() {
   // this is what you would see when the game starts
-  background(200);
+  background(255, 192, 203);
+  fill(0, 0, 200)
   textAlign(CENTER);
   textSize(16);
   text("Let's Play a Game!", width / 2, height / 2);
@@ -58,11 +61,11 @@ testBox.spin();
 
 function play() {
   // this is what you see when the game is running 
-  background(0, 200, 0);
+  background(216, 191, 216);
   fill(0, 0, 200)
   textAlign(CENTER);
   textSize(16);
-  text("This is where the Game happens", width / 2, height / 2);
+  text("Catch the falling flowers!", width / 2, height / 2);
 player1.x = mouseX;
   player1.display();
   if (timer.isFinished()) {
