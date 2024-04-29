@@ -81,16 +81,20 @@ player1.x = mouseX;
     
       if (presents[i].y > height) {
         presents.splice(i, 1); // remove from array
+        score--; // decrement score by 1
       }
     
       let d = dist(presents[i].x, presents[i].y, player1.x, player1.y);
       // d is now the distance in pixels between presents[i] and player1
       if (d < 50) {
         presents.splice(i, 1); // remove the present from the array
+  
       }
       if (d < 50) {
         presents.splice(i, 1);
         score ++; // add 1 point!
+      
+      
       }
     } // end of for() loop
   
@@ -110,6 +114,7 @@ function gameOver() {
   textAlign(CENTER);
   textSize(16);
   text("Game Over!", width / 2, height / 2);
+  text("Your final score: " + score, width/2, height * 2/3);
 }
 
 function mousePressed(){
