@@ -103,7 +103,6 @@ text("Elapsed time: " + timer.elapsedTime, 20, 20); //show elapsed time in ms
 text("Score: " + score, 20, 40);
     
 }
-  
 
 
 
@@ -131,6 +130,8 @@ if (gameState == "splash") {
   gameState = "play"; // go to the play() screen
   timer.start(); // starts the timer
   dropTimer.start(); // start the drop timer for presents
+  score = 0; // reset score to 0 at start of game
+
   }
 
 else if (gameState == "play") {
